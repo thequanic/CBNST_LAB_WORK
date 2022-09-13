@@ -1,5 +1,5 @@
 /*
-Program to find absolute, relative and percentage error
+Program to find absolute, relative andpercentage error
 */
 #include<stdio.h>
 #include<math.h>
