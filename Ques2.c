@@ -2,7 +2,7 @@
 
 double f(double x)
 {
-    return x*x*x-4*x-9;
+    return x*x*x-2*x-5;
 }
 
 double turncate(double x)
@@ -49,20 +49,20 @@ int main()
 
         while(!isEqual(arr))
         {
-            //printf("f%lf=%lf %lf=%lf %lf\n",arr[0],f(arr[0]),arr[1],f(arr[1]),arr[2]);
+            //printf("%lf=%lf %lf=%lf %lf\n",arr[0],f(arr[0]),arr[1],f(arr[1]),arr[2]);
             arr[2]=(arr[0]+arr[1])/2;
 
             if(f(arr[2])>0)
             {
                 double temp=arr[1];
                 arr[1]=arr[2];
-                arr[2]=arr[1];
+                arr[2]=temp;
             }
             else
             {
                 double temp=arr[0];
                 arr[0]=arr[2];
-                arr[2]=arr[0];
+                arr[2]=temp;
             }
 
             itr++;
