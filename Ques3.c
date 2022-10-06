@@ -49,7 +49,7 @@ int main()
 
         while(!isEqual(arr))
         {
-            printf("arr[0]:f(%.3lf)=%.3lf arr[1]:f(%.3lf)=%.3lf arr[2]:%.3lf itr=%d\n",arr[0],f(arr[0]),arr[1],f(arr[1]),arr[2],itr);
+            //printf("arr[0]:f(%.3lf)=%.3lf arr[1]:f(%.3lf)=%.3lf arr[2]:%.3lf itr=%d\n",arr[0],f(arr[0]),arr[1],f(arr[1]),arr[2],itr);
             arr[2]=(f(arr[1])*arr[0]-f(arr[0])*arr[1]) /(f(arr[1])-f(arr[0]));
 
             if(f(arr[2])>0)
