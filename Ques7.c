@@ -8,12 +8,17 @@ double truncate(double x)
 			
 		
 }
-int isEqual(double arr[],double arr1[])
+int isEqual(double arr[],double arr1[],int n)
 {
-    
-    if(truncate(arr[0])==truncate(arr1[0])&&truncate(arr[1])==truncate(arr1[1])&&truncate(arr[2])==truncate(arr1[2]))
-    {return 1;}
-    else{return 0;}
+    int i;
+    for(i=0;i<n;i++)
+    {
+        if(truncate(arr[i])!=truncate(arr1[i]))
+        {
+            return 0;
+        }
+    }
+    return 1;
 }
 int main()
 {
@@ -38,13 +43,14 @@ int main()
         scanf("%lf",&unknowns[i]);
     }
     int itr=0;
-    while(!isEqual(unknowns,unknowns_pre))
+    while(!isEqual(unknowns,unknowns_pre,n))
     {
         itr++;
         for(i=0;i<n;i++)
         {
             unknowns_pre[i]=unknowns[i];
         }
+
         for(i=0;i<n;i++)
         {
             unknowns[i]=eq[i][n];
@@ -56,7 +62,6 @@ int main()
                 }
             }
             unknowns[i]/=eq[i][i];
-
         }
     }
     printf("\nUnknowns are:\n");
