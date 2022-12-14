@@ -1,19 +1,15 @@
-//newton forward method
+//newton backward method
 
 #include <stdio.h>
-
 int main()
 {
     int i, j;
     int n; 
     printf("Enter number of given values:");
     scanf("%d",&n);
-
     float x[n];
     float y[n][n];
-
     printf("Enter x y for %d values:",n);
-
     for(i=0;i<n;i++)
     {
         printf("\nEnter x:");
@@ -23,13 +19,9 @@ int main()
 
         for(j=1;j<n;j++){y[i][j]=0;}
     }
-
-    
     float a; 
-
     printf("Enter point of interpolation:");
     scanf("%f",&a);
-    
     float h, u, sum, p;
     for (j = 1; j < n; j++) {
         for (i = n-1; i >= 0+j; i--) {
@@ -38,7 +30,6 @@ int main()
         }
     }
     printf("\n The backward difference table is:\n");
-    
     for (i = 0; i < n; i++) {
         printf("\n");
         for (j = 0; j <n; j++) {
@@ -46,7 +37,6 @@ int main()
         }
     
     }
-  
     p = 1.0;
     sum = y[n-1][0];
     h = x[1] - x[0];

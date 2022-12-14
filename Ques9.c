@@ -1,19 +1,15 @@
 //newton forward method
 
 #include <stdio.h>
-
 int main()
 {
     int i, j;
     int n; 
     printf("Enter number of given values:");
     scanf("%d",&n);
-
     float x[n];
     float y[n][n];
-
     printf("Enter x y for %d values:",n);
-
     for(i=0;i<n;i++)
     {
         printf("Enter x:");
@@ -23,13 +19,9 @@ int main()
 
         for(j=1;j<n;j++){y[i][j]=0;}
     }
-
-    
     float a; 
-
     printf("Enter point of interpolation:");
     scanf("%f",&a);
-    
     float h, u, sum, p;
     for (j = 1; j < n; j++) {
         for (i = 0; i < n - j; i++) {
@@ -43,7 +35,6 @@ int main()
             printf("%f\t", y[i][j]);
         }
     }
-  
     p = 1.0;
     sum = y[0][0];
     h = x[1] - x[0];
