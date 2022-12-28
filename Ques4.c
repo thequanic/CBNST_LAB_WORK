@@ -52,7 +52,7 @@ int main()
     while(1)
     {
         v3=next(v2);
-       // printf("%lf\n%lf\n%lf\n",turncate(v1),turncate(v2),turncate(v3));
+       printf("%lf\n%lf\n%lf\n",turncate(v1),turncate(v2),turncate(v3));
         itr++;
         if(isEqual(v1,v2,v3))
         {
@@ -63,7 +63,7 @@ int main()
         itr++;
         if(isEqual(v1,v2,v3))
         {
-           // printf("%lf\n",turncate(v1));
+           printf("%lf\n",turncate(v1));
             break;
         }
 
@@ -71,7 +71,7 @@ int main()
         itr++;
         if(isEqual(v1,v2,v3))
         {
-            //printf("%lf\n",turncate(v2));
+            printf("%lf\n",turncate(v2));
             break;
         }
 
