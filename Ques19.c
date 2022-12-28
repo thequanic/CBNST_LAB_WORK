@@ -45,12 +45,9 @@ Cofficients are: a=2.000006 b=-3.000054 c=-3.999911
 Equation of parabola: y = 2.000006 * x^2 + -3.000054 * x + -3.999911
 */
 #include <stdio.h>
-
 void gauss_elimination(float eq[3][4],int n,float unknowns[3])
 {
-    
     int i,j;
-
     if(eq[0][0]<eq[1][0])
     {
         for(i=0;i<=n;i++)
@@ -60,7 +57,6 @@ void gauss_elimination(float eq[3][4],int n,float unknowns[3])
             eq[1][i]=temp;
         }
     }
-
     if(eq[0][0]<eq[2][0])
     {
         for(i=0;i<=n;i++)
@@ -70,7 +66,6 @@ void gauss_elimination(float eq[3][4],int n,float unknowns[3])
             eq[2][i]=temp;
         }
     }
-
     if(eq[1][1]<eq[2][1])
     {
         for(i=0;i<=n;i++)
@@ -80,7 +75,6 @@ void gauss_elimination(float eq[3][4],int n,float unknowns[3])
             eq[2][i]=temp;
         }
     }
-
     int k;
     for(k=0;k<n-1;k++)
     {
@@ -106,19 +100,14 @@ void gauss_elimination(float eq[3][4],int n,float unknowns[3])
         unknowns[k]/=eq[k][k];
     }
     printf("\nExcuted");
-
-    
-
 }
 int main()
 {
     printf("Enter number of provided x,y values:");
     int n;
     scanf("%d",&n);
-
     int i,j;
     float x[n],y[n],xy[n],x2[n],x3[n],x4[n],x2y[n];
-
     printf("Enter values of x and y for %d times:\n",n);
     for(i=0;i<n;i++)
     {
@@ -126,16 +115,13 @@ int main()
         scanf("%f",&x[i]);
         printf("Enter y:");
         scanf("%f",&y[i]);
-
         xy[i]=x[i]*y[i];
         x2[i]=x[i]*x[i];
         x3[i]=x2[i]*x[i];
         x4[i]=x3[i]*x[i];
         x2y[i]=x2[i]*y[i];
     }
-
     float sum_x=0,sum_y=0,sum_xy=0,sum_x2=0,sum_x3=0,sum_x4=0,sum_x2y=0;
-
     printf("\nTable is:\n");
     printf("\nx        \ty        \txy        \tx^2      \tx^3      \tx^4      \tx^2*y      ");
     for(i=0;i<n;i++)
@@ -149,7 +135,6 @@ int main()
         sum_x4+=x4[i];
         sum_x2y+=x2y[i];
     }
-
     printf("\n\nSigma x : %f",sum_x);
     printf("\nSigma y: %f",sum_y);
     printf("\nSigma x*y: %f",sum_xy);
@@ -157,22 +142,17 @@ int main()
     printf("\nSigma x cube: %f",sum_x3);
     printf("\nSigma x to the power 4: %f",sum_x4);
     printf("\nSigma x square * y: %f",sum_x2y);
-
     printf("\nNormal equations are:");
     printf("\n%f * a + %f * b + %d * c = %f",sum_x2,sum_x,n,sum_y);
     printf("\n%f * a + %f * b + %f * c = %f",sum_x3,sum_x2,sum_x,sum_xy);
     printf("\n%f * a + %f * b + %f * c = %f",sum_x4,sum_x3,sum_x2,sum_x2y);
-
     float eq[3][4];
     eq[0][0]=sum_x2;eq[0][1]=sum_x;eq[0][2]=n;eq[0][3]=sum_y;
     eq[1][0]=sum_x3;eq[1][1]=sum_x2;eq[1][2]=sum_x;eq[1][3]=sum_xy;
     eq[2][0]=sum_x4;eq[2][1]=sum_x3;eq[2][2]=sum_x2;eq[2][3]=sum_x2y;
-
     float unknowns[3];
     gauss_elimination(eq,3,unknowns);
-
     printf("\nCofficients are: a=%f b=%f c=%f",unknowns[0],unknowns[1],unknowns[2]);
     printf("\nEquation of parabola: y = %f * x^2 + %f * x + %f",unknowns[0],unknowns[1],unknowns[2]);
-
     return 0;
 }
