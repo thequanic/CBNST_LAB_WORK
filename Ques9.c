@@ -22,9 +22,13 @@ int main()
     float a; 
     printf("Enter point of interpolation:");
     scanf("%f",&a);
+
+
     float h, u, sum, p;
-    for (j = 1; j < n; j++) {
-        for (i = 0; i < n - j; i++) {
+    for (j = 1; j < n; j++) //calculating forward diff table
+    {
+        for (i = 0; i < n - j; i++) 
+        {
             y[i][j] = y[i + 1][j - 1] - y[i][j - 1];
         }
     }

@@ -23,8 +23,10 @@ int main()
     printf("Enter point of interpolation:");
     scanf("%f",&a);
     float h, u, sum, p;
-    for (j = 1; j < n; j++) {
-        for (i = n-1; i >= 0+j; i--) {
+    for (j = 1; j < n; j++) //calculating backward diff table
+    {
+        for (i = n-1; i >= j; i--) 
+        {
             y[i][j] = y[i][j - 1] - y[i-1][j - 1];
            
         }
