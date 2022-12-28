@@ -48,33 +48,6 @@ Equation of parabola: y = 2.000006 * x^2 + -3.000054 * x + -3.999911
 void gauss_elimination(float eq[3][4],int n,float unknowns[3])
 {
     int i,j;
-    if(eq[0][0]<eq[1][0])
-    {
-        for(i=0;i<=n;i++)
-        {
-            float temp=eq[0][i];
-            eq[0][i]=eq[1][i];
-            eq[1][i]=temp;
-        }
-    }
-    if(eq[0][0]<eq[2][0])
-    {
-        for(i=0;i<=n;i++)
-        {
-            float temp=eq[0][i];
-            eq[0][i]=eq[2][i];
-            eq[2][i]=temp;
-        }
-    }
-    if(eq[1][1]<eq[2][1])
-    {
-        for(i=0;i<=n;i++)
-        {
-            float temp=eq[1][i];
-            eq[1][i]=eq[2][i];
-            eq[2][i]=temp;
-        }
-    }
     int k;
     for(k=0;k<n-1;k++)
     {
@@ -147,9 +120,9 @@ int main()
     printf("\n%f * a + %f * b + %f * c = %f",sum_x3,sum_x2,sum_x,sum_xy);
     printf("\n%f * a + %f * b + %f * c = %f",sum_x4,sum_x3,sum_x2,sum_x2y);
     float eq[3][4];
-    eq[0][0]=sum_x2;eq[0][1]=sum_x;eq[0][2]=n;eq[0][3]=sum_y;
+    eq[2][0]=sum_x2;eq[2][1]=sum_x;eq[2][2]=n;eq[2][3]=sum_y;
     eq[1][0]=sum_x3;eq[1][1]=sum_x2;eq[1][2]=sum_x;eq[1][3]=sum_xy;
-    eq[2][0]=sum_x4;eq[2][1]=sum_x3;eq[2][2]=sum_x2;eq[2][3]=sum_x2y;
+    eq[0][0]=sum_x4;eq[0][1]=sum_x3;eq[0][2]=sum_x2;eq[0][3]=sum_x2y;
     float unknowns[3];
     gauss_elimination(eq,3,unknowns);
     printf("\nCofficients are: a=%f b=%f c=%f",unknowns[0],unknowns[1],unknowns[2]);
