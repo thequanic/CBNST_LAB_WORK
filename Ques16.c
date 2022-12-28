@@ -20,7 +20,7 @@ int main()
     double y;
     int i=0;
     printf("\n\nx      \ty      ");
-    for(i=0;i<=n;i++)
+    for(i=0;i<n;i++)
     {
         printf("\n%7lf\t%7lf",x0,y0);
         y=y0+h*fun(x0,y0);

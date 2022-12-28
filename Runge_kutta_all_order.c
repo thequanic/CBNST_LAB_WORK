@@ -10,7 +10,7 @@ void order1(float x0, float y0, float xn, float h, float n)
     float y;
     int i;
     printf("\n\nx      \ty      ");
-    for(i=0;i<=n;i++)
+    for(i=0;i<n;i++)
     {
         printf("\n%f\t%f",x0,y0);
         y=y0+h*f(x0,y0);
