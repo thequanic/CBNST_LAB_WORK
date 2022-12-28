@@ -1,12 +1,32 @@
-//qauss jordan for solving linear eqautions
+//qauss seidal
 #include <stdio.h>
+double truncate(double x)
+{
+    int y= (int)(x*1000);
+			double z= (double)y/1000;
+			return z;
+			
+		
+}
+int isEqual(double arr[],double arr1[],int n)
+{
+    int i;
+    for(i=0;i<n;i++)
+    {
+        if(truncate(arr[i])!=truncate(arr1[i]))
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
 int main()
 {
-    printf("Enter number of unknowns:");
     int n;
+    printf("Enter number of unknowns:");
     scanf("%d",&n);
-    float eq[n][n+1];
-    float unknowns[n];
+    double eq[n][n+1];
+    double unknowns[n],unknowns_pre[n];
     int i,j;
     printf("Assuming equation in form ax+by+cz..=d, Enter value of constants:\n");
     for(i=0;i<n;i++)
@@ -14,31 +34,40 @@ int main()
         printf("Enter %d constants for equation %d:",n+1,i);
         for(j=0;j<n+1;j++)
         {
-            scanf("%f",&eq[i][j]);
+            scanf("%lf",&eq[i][j]);
         }
     }
-    int k;
-    for(k=0;k<n;k++)
-    {
-        for(i=0;i<n;i++)
-        {
-            if(i!=k)
-            {
-                float temp=eq[i][k]/eq[k][k];
-                for(j=0;j<n+1;j++)
-                {
-                    eq[i][j]=eq[i][j]-temp*eq[k][j];
-                }
-            }
-        }
-    }
-    for(k=0;k<n;k++)
-    {
-        unknowns[k]=eq[k][n]/eq[k][k];
-    }
-    printf("\n\nUnknowns are:");
+    printf("Enter initial quess values for unknowns:");
     for(i=0;i<n;i++)
     {
-        printf("\nx%d=%f\n",i,unknowns[i]);
+        scanf("%lf",&unknowns[i]);
     }
+    int itr=0;
+    while(!isEqual(unknowns,unknowns_pre,n))
+    {
+        itr++;
+        for(i=0;i<n;i++)
+        {
+            unknowns_pre[i]=unknowns[i];
+        }
+
+        for(i=0;i<n;i++)
+        {
+            unknowns[i]=eq[i][n];
+            for(j=0;j<n;j++)
+            {
+                if(i!=j)
+                {
+                    unknowns[i]-=eq[i][j]*unknowns[j];
+                }
+            }
+            unknowns[i]/=eq[i][i];
+        }
+    }
+    printf("\nUnknowns are:\n");
+    for(i=0;i<n;i++)
+    {
+        printf("x%d=%lf\n",i,truncate(unknowns[i]));
+    }
+    printf("\nNumber of iterations used:%d\n\n",itr);
 }
