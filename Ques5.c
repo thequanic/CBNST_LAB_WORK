@@ -44,7 +44,7 @@ int main()
     while(!isEqual(arr))
     {
         itr++;
-        arr[itr%3]=next(arr[(itr+2)%3]);    //just using mod to alculate position. if seem complex use v1 v2 and v3 like newton rapson
+        arr[itr%3]=next(arr[(itr+2)%3]);    //just using mod to calculate position. if seem complex use v1 v2 and v3 like newton rapson
         printf("\nx%d=%lf",itr,truncate(arr[itr%3]));
     }
 
