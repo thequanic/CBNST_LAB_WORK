@@ -31,7 +31,7 @@ int main()
     double x;
     scanf("%lf",&x);
 
-    double arr[3];
+    double arr[3];        //can also use same way as newton rapson
     arr[0]=x;
     printf("\nx0=%lf",truncate(arr[0]));
     arr[1]=next(arr[0]);
@@ -44,7 +44,7 @@ int main()
     while(!isEqual(arr))
     {
         itr++;
-        arr[itr%3]=next(arr[(itr+2)%3]);
+        arr[itr%3]=next(arr[(itr+2)%3]);    //just using mod to alculate position. if seem complex use v1 v2 and v3 like newton rapson
         printf("\nx%d=%lf",itr,truncate(arr[itr%3]));
     }
 
