@@ -17,7 +17,7 @@ float f(float x,float y)
 int main()
 {
     float x0,y0,xn,h;
-    printf("Enter value of x0, y0, h and xn:");
+    printf("Enter value of x0, y0, xn and h:");
     scanf("%f %f %f %f",&x0,&y0,&xn,&h);
     float n=(xn-x0)/h;
     float k1,k2,k3,k4;
